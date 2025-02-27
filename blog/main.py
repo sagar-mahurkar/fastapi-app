@@ -8,8 +8,8 @@ from .models import Blog
 @asynccontextmanager
 async def lifespan(app: FastAPI):
   # Create database
-  if len(SQLModel.metadata.tables.keys()) == 0:
-    SQLModel.metadata.create_all(engine)
+  print("Creating database tables")
+  SQLModel.metadata.create_all(engine)
   print("Database connected")
   yield
   # Disconnect database
